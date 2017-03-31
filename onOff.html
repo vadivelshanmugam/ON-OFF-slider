@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<title>Slider ON - OFF</title>
+<head>
+<!--styles-->
+<style>
+.outer-slider {
+	width: 60px;
+	display: inline-block;
+	border: 1px solid #90a699;
+	border-radius: 30px;
+	cursor: pointer;
+	background: #3ecd59;
+	height: 30px;
+	position: relative;
+}
+.outer-slider span {
+	width: 32px;
+    height: 32px;
+	display: block;
+	border: 1px solid #90a699;
+	border-radius: 30px;
+	cursor: -webkit-grab;
+	background: #fff;
+	position: absolute;
+    top: -2px;
+    left: 28px;
+}
+</style>
+<!--jquery-->
+<script type="text/javascript" src="../jquery.min.js"></script>
+
+</head>
+<body>
+
+<h2>Slider ON - OFF</h2>
+
+<div class="outer-slider">
+	<span data-state="on"></span>
+</div>
+
+<script>
+$('.outer-slider').on('click', function(){
+	var $inner = $(this).children();
+	if($inner.data('state') == 'on') {
+		$inner.animate({'left': '-2px'}).data('state', 'off');
+	} else {
+		$inner.animate({'left': '28px'}).data('state', 'on');;
+	}
+});
+</script>
+</body>
+</html>
